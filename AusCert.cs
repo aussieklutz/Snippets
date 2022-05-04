@@ -1,4 +1,6 @@
+using System;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace AusCert
 {
@@ -29,5 +31,23 @@ namespace AusCert
 			i.Test2();
 		}
 
+	}
+	
+	public class Utils
+	{
+		public static string strBox(string prompt)
+		{
+			return Interaction.InputBox(prompt, "AusCert", "", -1, -1);
+		}
+
+		public static void msgBox(string message)
+		{
+			MessageBox.Show(message, "AusCert");
+		}
+
+		public static bool boolBox(string query)
+		{
+			return MessageBox.Show(query, "AusCert", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes;
+		}
 	}
 }
