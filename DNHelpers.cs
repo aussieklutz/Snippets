@@ -4,7 +4,7 @@ using Microsoft.VisualBasic;
 
 namespace HackedClient
 {
-	public class Instrumentation
+	public class HackILExamples
 	{
 		public static void Test()
 		{
@@ -31,9 +31,34 @@ namespace HackedClient
 			i.Test2();
 		}
 
+		public void Test3()
+		{
+			String testString = ReturnsString();
+			testString = HackUtils.strBox("Change the String value: ", testString);
+			HackUtils.msgBox("New String value is " + testString);
+			
+			bool testBool = HackUtils.boolBox("Allow the thing?");
+			if(testBool)
+			{
+				HackUtils.msgBox("Allowed");
+			} else {
+				HackUtils.msgBox("Denied");
+			}
+		}
+
+		private bool ReturnsTrue()
+		{
+			return true;
+		}
+
+		private string ReturnsString()
+		{
+			return "String";
+		}
+
 	}
 	
-	public class Utils
+	public class HackUtils
 	{
 		public static string strBox(string prompt)
 		{
